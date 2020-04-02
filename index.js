@@ -38,7 +38,7 @@ function initalizeTokens(){
 				});
 			});
 		});
-		setTimeout(resolve, 1000);
+		setTimeout(resolve, 3000);
 	});
 }
 
