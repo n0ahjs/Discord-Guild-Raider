@@ -25,9 +25,9 @@ function initalizeTokens(){
 	return new Promise((resolve, reject) => {
 		fs.readFile("./tokens", "utf8", (err, data) => {
 			if(err) console.log(err);
-			data.split(" ").forEach(token => {
+			data.split(/\r?\n/).forEach(token => {
 				let instance = new Discord.Client();
-				instance.login(token);
+				instance.login(token.toString());
 				instance.on("ready", () => {
 					console.log(`User ${instance.user.tag} successfully logged in!`);
 					let newObj = {
