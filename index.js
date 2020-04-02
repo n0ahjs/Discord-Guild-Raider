@@ -47,10 +47,10 @@ module.exports = {
 		let input = rl.question("Input: ");
 		let command = Client.Commands.get(input.toLowerCase().split(" ")[0]);
 		if(command){
-			command.run(Client, input).then(() => { setTimeout(this.main, 1000)});
+			command.run(Client, input).then(() => { setTimeout(this.main, 2000)});
 		} else {
 			console.log(`Unknown Command!`);
-			setTimeout(this.main, 1000);
+			setTimeout(this.main, 2000);
 		}
 	}
 }
