@@ -17,6 +17,8 @@ fs.readdir("./Commands/", (err, files) => {
 		Client.Commands.set(command.toLowerCase(), prop);
 	});
 	initalizeTokens().then(() => {
+		console.clear();
+		console.log(`Initalized ${Client.Accounts.length} account(s)!`);
 		module.exports.main();
 	});
 });
