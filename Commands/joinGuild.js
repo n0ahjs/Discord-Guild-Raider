@@ -21,6 +21,7 @@ module.exports.run = async(Client, input) => {
 						});
 					}, I * 200);
 				});
+				resolve();
 			} else {
 				console.log("You did not specify a token!");
 				resolve();
