@@ -14,7 +14,7 @@ fs.readdir("./Commands/", (err, files) => {
 		let prop = require(`./Commands/${file}`);
 		let command = file.split(".")[0];
 		console.log(`Loading command: ${command}`);
-		Client.Commands.set(command, prop);
+		Client.Commands.set(command.toLowerCase(), prop);
 	});
 	initalizeTokens().then(() => {
 		module.exports.main();
