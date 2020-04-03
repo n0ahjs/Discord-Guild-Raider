@@ -26,27 +26,22 @@ module.exports.run = async(Client, message) => {
 
 	function raidGuild(Client, targetGuild, targetChannel, message){
 		return new Promise((resolve, reject) => {
-			for(var I = 0; I < 5000; I++){
-				Client.Accounts.forEach(async (account, I) => {
-					setTimeout(() => {
+			for(var I = 0; I < 100; I++){
+				setTimeout(async () => {
+					Client.Accounts.forEach(async (account, arrPos) => {
 						const instance = account.instance;
 						let Guild = instance.guilds.get(targetGuild);
 						if(Guild){
 							if(!isNaN(targetChannel)){
 								let Channel = Guild.channels.get(targetChannel);
-								if(Channel){
-									Channel.send(`[${Math.floor(Math.random() * 100)}] ${message} [${Math.floor(Math.random() * 100)}]`);
-								}
+								if(Channel) Channel.send(message);
 							} else {
 								let Channel = Guild.channels.find(channel => channel.name.toLowerCase() == targetChannel.toLowerCase());
-								if(Channel){
-									Channel.send(`[${Math.floor(Math.random() * 100)}] ${message} [${Math.floor(Math.random() * 100)}]`);
-								}
+								if(Channel) Channel.send(message);
 							}
 						}
-					}, I * 1000);
-				});
-				resolve();
+					});
+				}, I * 700);
 			}
 		});
 	}
