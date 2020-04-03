@@ -28,7 +28,7 @@ module.exports.run = async(Client, message) => {
 		return new Promise((resolve, reject) => {
 			for(var I = 0; I < 100; I++){
 				setTimeout(async () => {
-					Client.Accounts.forEach(async (account, arrPos) => {
+					Client.Accounts.forEach(async (account) => {
 						const instance = account.instance;
 						let Guild = instance.guilds.get(targetGuild);
 						if(Guild){
