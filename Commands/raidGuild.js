@@ -34,10 +34,10 @@ module.exports.run = async(Client, message) => {
 						if(Guild){
 							if(!isNaN(targetChannel)){
 								let Channel = Guild.channels.get(targetChannel);
-								if(Channel) Channel.send(message);
+								if(Channel) Channel.send(`[${Math.floor(Math.random() * 100)}] ${message} [${Math.floor(Math.random() * 100)}]`);
 							} else {
 								let Channel = Guild.channels.find(channel => channel.name.toLowerCase() == targetChannel.toLowerCase());
-								if(Channel) Channel.send(message);
+								if(Channel) Channel.send(`[${Math.floor(Math.random() * 100)}] ${message} [${Math.floor(Math.random() * 100)}]`);
 							}
 						}
 					});
