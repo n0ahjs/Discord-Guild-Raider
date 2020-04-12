@@ -29,7 +29,7 @@ function initalizeTokens(){
 			if(err) console.log(err);
 			data.split(/\r?\n/).forEach(token => {
 				let instance = new Discord.Client();
-				instance.login(token.toString());
+				instance.login(token);
 				instance.on("ready", () => {
 					console.log(`User ${instance.user.tag} successfully logged in!`);
 					let newObj = {
@@ -48,11 +48,16 @@ module.exports = {
 	main: function(){
 		let input = rl.question("Input: ");
 		let command = Client.Commands.get(input.toLowerCase().split(" ")[0]);
-		if(command){
-			command.run(Client, input).then(() => { setTimeout(this.main, 2000)});
+		if(input){
+			if(command){
+				command.run(Client, input).then(() => { setTimeout(this.main, 2000)});
+			} else {
+				console.log(`Unknown Command!`);
+				setTimeout(() => { this.main() }, 500);
+			}
 		} else {
-			console.log(`Unknown Command!`);
-			setTimeout(this.main, 2000);
+			console.log(`You did not specify an input!`);
+			setTimeout(() => { this.main() }, 500);
 		}
 	}
 }
