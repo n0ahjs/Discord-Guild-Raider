@@ -1,6 +1,6 @@
 const rl = require("readline-sync");
 
-module.exports.run = async(Client, input) => {
+module.exports.run = async(Client) => {
 	return new Promise((resolve, reject) => {
 		let targetGuildID = rl.question("Guild ID: ");
 		if(targetGuildID){

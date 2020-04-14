@@ -1,4 +1,4 @@
-module.exports.run = async(Client, input) => {
+module.exports.run = async(Client) => {
 	return new Promise((resolve, reject) => {
 		Client.Accounts.forEach(async (account) => {
 			console.log(`Tag: ${account.instance.user.tag}`);

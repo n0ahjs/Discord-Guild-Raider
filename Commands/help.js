@@ -1,6 +1,6 @@
 let fs = require("fs");
 
-module.exports.run = async(Client, input) => {
+module.exports.run = async(Client) => {
 	return new Promise((resolve, reject) => {
 		fs.readdir("./Commands/", (err, files) => {
 			if(err) console.log(err);

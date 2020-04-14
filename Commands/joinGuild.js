@@ -1,7 +1,7 @@
 const request = require("request");
 const rl = require("readline-sync");
 
-module.exports.run = async(Client, input) => {
+module.exports.run = async(Client) => {
 	return new Promise((resolve, reject) => {
 		Client.Accounts.forEach(account => {
 			const instance = account.instance;

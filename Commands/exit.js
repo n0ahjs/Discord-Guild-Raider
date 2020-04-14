@@ -1,4 +1,4 @@
-module.exports.run = async(Client, input) => {
+module.exports.run = async(Client) => {
 	console.log("Goodbye!");
 	setTimeout(process.exit, 1000);
 }
